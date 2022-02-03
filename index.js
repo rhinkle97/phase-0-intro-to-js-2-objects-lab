@@ -1,34 +1,27 @@
-// Write your solution in this file!
-const employee = {
-    name: 'Sam',
-    streetAddress: undefined
+let employee = {
+    name : undefined,
+    streetAddress : undefined,
 };
-
-beforeEach(function () {
-    for (const key in employee) {
-      delete employee[key];
-    }
-    employee.name = 'Sam';
-});
+let newEmployee;
 
 function updateEmployeeWithKeyAndValue(employee, key, value) {
-    const updateEmployee = {...employee};
-    updateEmployee['streetAddress'] = '11 Broadway';
-    return updateEmployee;
-};
+    newEmployee = {...employee};
+    newEmployee[key] = value;
+    return newEmployee;
+}
 
 function destructivelyUpdateEmployeeWithKeyAndValue(employee, key, value) {
-    employee['streetAddress'] = '12 Broadway';
+    employee[key] = value;
     return employee;
-};
+}
 
 function deleteFromEmployeeByKey(employee, key) {
-    let newEmployee = {...employee};
-    newEmployee.name = undefined;
+    newEmployee = {...employee};
+    delete newEmployee[key];
     return newEmployee;
-};
+}
 
 function destructivelyDeleteFromEmployeeByKey(employee, key) {
-    delete employee.name;
+    delete employee[key];
     return employee;
-};
+}
